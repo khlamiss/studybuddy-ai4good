@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy - Ton pote IA pour réviser en s'amusant !</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête Fun -->
+        <header class="game-header">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <h1>Study<span class="buddy-text">Buddy</span></h1>
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="tagline">Réviser, c'est comme un jeu vidéo... mais tu deviens intelligent en jouant ! 🎮🧠</div>
+            <div class="player-stats">
+                <div class="stat">
+                    <i class="fas fa-trophy"></i>
+                    <span id="score">Score : 0</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-fire"></i>
+                    <span id="streak">Série : 0</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-crown"></i>
+                    <span id="level">Niveau : Débutant</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Section Avatar et Chat -->
+        <section class="avatar-section">
+            <div class="buddy-avatar">
+                <div class="avatar-container">
+                    <div class="avatar-face" id="avatarFace">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="avatar-mood" id="avatarMood">😎 Prêt à jouer !</div>
+                </div>
+                <div class="buddy-info">
+                    <h3><i class="fas fa-robot"></i> Buddy 3000</h3>
+                    <p>Ton pote IA super drôle qui déteste l'ennui autant que toi !</p>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-window" id="chatWindow">
+                    <div class="message buddy">
+                        <div class="message-content">
+                            <strong>Buddy :</strong> Salut champion ! 👋 Prêt à défoncer ton cerveau (gentiment) ? 
+                            Choisis une matière et on va transformer ces révisions en partie de fou !
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+    <button class="action-btn" data-subject="maths">
+        <i class="fas fa-calculator"></i> Maths
+    </button>
+    <button class="action-btn" data-subject="science">
+        <i class="fas fa-flask"></i> Sciences
+    </button>
+    <button class="action-btn" data-subject="french">
+        <i class="fas fa-book"></i> Français
+    </button>
+    <button class="action-btn" data-subject="history">
+        <i class="fas fa-landmark"></i> Histoire
+    </button>
+    <button class="action-btn" data-subject="random">
+        <i class="fas fa-dice"></i> Aléatoire
+    </button>
+</div>
+        </section>
+
+        <!-- Section Jeu Principal -->
+        <section class="game-section">
+            <h2><i class="fas fa-gamepad"></i> Zone de Révision Game-ifiée</h2>
+            
+            <div class="game-container">
+                <!-- Mode Sélection -->
+                <div class="mode-selection" id="modeSelection">
+                    <h3>CHOISIS TON MODE DE COMBAT :</h3>
+                    <div class="mode-buttons">
+                        <button class="mode-btn" data-mode="quiz">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Quiz Battle</span>
+                            <small>Affronte l'IA en 1v1 ! ⚔️</small>
+                        </button>
+                        <button class="mode-btn" data-mode="flashcards">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Cartes Flash</span>
+                            <small>Mémoire de super-héros ! 🦸‍♂️</small>
+                        </button>
+                        <button class="mode-btn" data-mode="challenge">
+                            <i class="fas fa-trophy"></i>
+                            <span>Défi du Jour</span>
+                            <small>Mission spéciale ! 🎯</small>
+                        </button>
+                        <button class="mode-btn" data-mode="explain">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Explique-moi</span>
+                            <small>L'IA raconte des histoires ! 📖</small>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Zone de Jeu Dynamique -->
+                <div class="game-area" id="gameArea">
+                    <!-- Le contenu change selon le mode -->
+                    <div class="welcome-screen">
+                        <i class="fas fa-robot welcome-icon"></i>
+                        <h3>Attends ton adversaire... euh, ton pote !</h3>
+                        <p>Sélectionne un mode ci-dessus pour commencer l'aventure !</p>
+                        <div class="fun-fact">
+                            <i class="fas fa-star"></i>
+                            <p>Le savais-tu ? Ton cerveau apprend mieux quand tu rigoles ! 😄</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interface Quiz -->
+                <div class="quiz-interface" id="quizInterface" style="display: none;">
+                    <div class="question-header">
+                        <div class="timer">
+                            <i class="fas fa-clock"></i>
+                            <span id="timer">30</span>s
+                        </div>
+                        <div class="question-counter">
+                            Question <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <h3 id="questionText">Quelle est la capitale de la France ?</h3>
+                        
+                        <div class="answers-grid" id="answersGrid">
+                            <!-- Les réponses seront générées ici -->
+                        </div>
+
+                        <div class="quiz-feedback" id="quizFeedback">
+                            <!-- Feedback apparaît ici -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button id="nextQuestion" class="control-btn">
+                            <i class="fas fa-forward"></i> Question suivante
+                        </button>
+                        <button id="hintBtn" class="hint-btn">
+                            <i class="fas fa-lightbulb"></i> Demander un indice
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Progression -->
+        <section class="progress-section">
+            <h2><i class="fas fa-chart-line"></i> Ta Progression de Super-Étudiant</h2>
+            
+            <div class="progress-container">
+                <div class="badges">
+                    <h3>🏆 Tes Badges :</h3>
+                    <div class="badges-list" id="badgesList">
+                        <div class="badge locked">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Nouveau</span>
+                        </div>
+                        <!-- Plus de badges débloqués ici -->
+                    </div>
+                </div>
+
+                <div class="achievements">
+                    <h3>📈 Tes Stats :</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="stat-value" id="correctAnswers">0</div>
+                            <div class="stat-label">Réponses justes</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-bolt"></i>
+                            <div class="stat-value" id="fastAnswers">0</div>
+                            <div class="stat-label">Réponses rapides</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-fire"></i>
+                            <div class="stat-value" id="bestStreak">0</div>
+                            <div class="stat-label">Meilleure série</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <div class="stat-value" id="totalPoints">0</div>
+                            <div class="stat-label">Points totaux</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Comment ça marche ?" -->
+        <section class="explanation-section">
+            <h2><i class="fas fa-cogs"></i> Comment Buddy fonctionne-t-il ?</h2>
+            
+            <div class="explanation-cards">
+                <div class="explain-card">
+                    <div class="number">1</div>
+                    <h3>🧠 L'IA qui comprend</h3>
+                    <p>Buddy analyse tes réponses pour adapter la difficulté. Plus tu réussis, plus les questions deviennent intéressantes !</p>
+                </div>
+                <div class="explain-card">
+                    <div class="number">2</div>
+                    <h3>🎮 La Game-ification</h3>
+                    <p>Points, niveaux, badges... tout est fait pour que tu oublies que tu es en train d'apprendre !</p>
+                </div>
+                <div class="explain-card">
+                    <div class="number">3</div>
+                    <h3>😄 L'humour intelligent</h3>
+                    <p>Chaque explication cache une blague ou une anecdote rigolote pour mieux mémoriser.</p>
+                </div>
+                <div class="explain-card">
+                    <div class="number">4</div>
+                    <h3>📊 La progression visible</h3>
+                    <p>Vois en direct comment ton "cerveau numérique" grandit avec tes connaissances !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Documentation AI4GOOD -->
+        <section class="documentation-section">
+            <h2><i class="fas fa-code"></i> Documentation Technique</h2>
+            
+            <div class="doc-content">
+                <h3>🤖 Pour les curieux : Comment l'IA fonctionne ?</h3>
+                <p>StudyBuddy utilise plusieurs techniques d'IA :</p>
+                
+                <div class="tech-details">
+                    <div class="tech-card">
+                        <h4><i class="fas fa-brain"></i> Adaptive Learning</h4>
+                        <p>L'algorithme ajuste la difficulté en fonction de tes performances.</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4><i class="fas fa-comment-dots"></i> NLP Simple</h4>
+                        <p>Comprend tes réponses textuelles basiques.</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4><i class="fas fa-chart-bar"></i> Analytics en temps réel</h4>
+                        <p>Suit tes progrès pour te motiver.</p>
+                    </div>
+                </div>
+
+                <h3>📚 Sources pédagogiques :</h3>
+                <ul>
+                    <li>Programmes scolaires français</li>
+                    <li>Questions créées par des enseignants</li>
+                    <li>Explications validées scientifiquement</li>
+                </ul>
+
+                <div class="github-link">
+                    <i class="fab fa-github"></i>
+                    <span>Code source disponible sur GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i> StudyBuddy AI4GOOD
+                </div>
+                <div class="footer-info">
+                    <p>Projet éducatif développé pour AI4GOOD MiniMind 2024</p>
+                    <p>Objectif : Rendre l'apprentissage amusant grâce à l'IA</p>
+                </div>
+                <div class="footer-final">
+                    <p>Rappelle-toi : Même les génies ont commencé par des révisions ! 🧠✨</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

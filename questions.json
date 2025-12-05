@@ -1,0 +1,65 @@
+{
+  "maths": [
+    {
+      "question": "Si j'ai 5 cookies et que j'en mange 2, combien de cookies vais-je regretter d'avoir mangé ?",
+      "answers": [
+        {"text": "0, ils étaient trop bons !", "correct": false},
+        {"text": "2, c'est évident !", "correct": true},
+        {"text": "5, j'aurais dû tous les garder", "correct": false},
+        {"text": "Maths + cookies = torture 😭", "correct": false}
+      ],
+      "explanation": "C'est simple : 5 - 2 = 3 cookies restants, donc 2 mangés. Mais la vraie question : pourquoi tu comptes tes cookies ? Mange-les tous ! 😄",
+      "fun_fact": "Savais-tu que 78% des étudiants préfèrent les problèmes de maths avec des cookies ?"
+    },
+    {
+      "question": "Quelle est la racine carrée de 64 ?",
+      "answers": [
+        {"text": "8", "correct": true},
+        {"text": "6.4", "correct": false},
+        {"text": "32", "correct": false},
+        {"text": "Je préfère les racines des arbres 🌳", "correct": false}
+      ],
+      "explanation": "8 × 8 = 64 ! C'est comme si tu avais 8 amis et que chacun apporte 8 cookies... ça fait 64 cookies ! 🍪",
+      "fun_fact": "Le symbole √ vient de la lettre 'r' qui signifie 'radix' (racine en latin)."
+    }
+  ],
+  "sciences": [
+    {
+      "question": "Pourquoi le ciel est bleu ?",
+      "answers": [
+        {"text": "Parce que la mer reflète sa couleur", "correct": false},
+        {"text": "À cause de la diffusion de Rayleigh", "correct": true},
+        {"text": "Les oiseaux l'ont peint", "correct": false},
+        {"text": "C'est le fond d'écran de la Terre 🌍", "correct": false}
+      ],
+      "explanation": "La lumière du soleil se disperse dans l'atmosphère et le bleu se diffuse plus que les autres couleurs ! C'est comme si l'atmosphère était un gigantesque filtre Instagram ! 📸",
+      "fun_fact": "Sur Mars, le ciel est rose à cause de la poussière !"
+    }
+  ],
+  "francais": [
+    {
+      "question": "'Les pommes sont rouges' est :",
+      "answers": [
+        {"text": "Une métaphore", "correct": false},
+        {"text": "Une affirmation", "correct": true},
+        {"text": "Un oxymore", "correct": false},
+        {"text": "Une excuse pour manger des pommes 🍎", "correct": false}
+      ],
+      "explanation": "C'est juste une affirmation ! Une métaphore serait 'les pommes sont des joues rondes', ce qui serait bizarre mais poétique !",
+      "fun_fact": "Victor Hugo écrivait debout pour réfléchir mieux !"
+    }
+  ],
+  "histoire": [
+    {
+      "question": "Qui a dit 'Je pense, donc je suis' ?",
+      "answers": [
+        {"text": "Descartes", "correct": true},
+        {"text": "Socrate", "correct": false},
+        {"text": "Mon prof de philo", "correct": false},
+        {"text": "Moi, quand je cherche mes clés 🔑", "correct": false}
+      ],
+      "explanation": "C'est Descartes ! Il devait beaucoup réfléchir pour pondre ça. Imagine son carnet : 'Je pense... ouille ma tête... donc je suis... besoin de café ☕'",
+      "fun_fact": "Descartes se levait à midi et travaillait au lit ! Le rêve !"
+    }
+  ]
+}
